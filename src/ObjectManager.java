@@ -64,12 +64,13 @@ public class ObjectManager {
 
 	void manageEnemies() {
 
-
+<<<<<<< HEAD
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			System.out.println("made an alien");
 			addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
-
-
+=======
+		
+>>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
 
 			enemyTimer = (Long) System.currentTimeMillis();
 		}
@@ -129,7 +130,8 @@ public class ObjectManager {
 
 	}
 
-
+<<<<<<< HEAD
+=======
 
 	
 	public void createAliens() {
@@ -146,7 +148,7 @@ public class ObjectManager {
 	
 	
 	
-
+>>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
 }
 
 

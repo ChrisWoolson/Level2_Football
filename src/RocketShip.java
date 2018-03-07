@@ -15,7 +15,8 @@ public class RocketShip extends GameObject {
 	}
 
 	void update() {
-
+<<<<<<< HEAD
+=======
 		
 		rX = this.x;     //used for locating the rocket
 			rY = this.y;
@@ -32,7 +33,7 @@ public class RocketShip extends GameObject {
 			
 
 			
-
+>>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
 		super.update();
 		if (up) {
 			this.y = this.y + speed;
