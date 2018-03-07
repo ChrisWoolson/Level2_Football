@@ -28,7 +28,7 @@ public int ay2;
 			rY = this.y;
 		
 			
-			ObjectManager.getAlienX();
+			//ObjectManager.getAlienX();
 			if(ObjectManager.aX > rX) {
 				Alien.downa = true;
 				
