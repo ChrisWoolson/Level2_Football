@@ -1,14 +1,19 @@
 import java.awt.Graphics;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class ObjectManager {
 	RocketShip rocket;
+	Ball ball;
 	Long enemyTimer = (long) 0;
 	int enemySpawnTime = 1000;
 	int score = 0;
 
 	public ObjectManager(RocketShip rockets) {
+		
+			
+		
 		rocket = rockets;
 		enemyTimer = (Long) System.currentTimeMillis();
 	}
@@ -34,6 +39,7 @@ public class ObjectManager {
 
 	void draw(Graphics g) {
 		rocket.draw(g);
+		ball.draw(g);
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).draw(g);
 
@@ -58,9 +64,13 @@ public class ObjectManager {
 
 	void manageEnemies() {
 
+<<<<<<< HEAD
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			System.out.println("made an alien");
 			addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
+=======
+		
+>>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
 
 			enemyTimer = (Long) System.currentTimeMillis();
 		}
@@ -120,4 +130,32 @@ public class ObjectManager {
 
 	}
 
+<<<<<<< HEAD
+=======
+
+	
+	public void createAliens() {
+		addAlien(new Alien(1400, 275, 50, 50, 2));
+		addAlien(new Alien(1400, 475, 50, 50, 1));
+		addAlien(new Alien(1400, 675, 50, 50, 1));
+		ball = new Ball(1600, 475, 20, 20);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+>>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
 }
+
+
+
+
+
+
+
+
+
