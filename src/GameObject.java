@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 import org.w3c.dom.css.Rect;
 
 public class GameObject {
- int x;
- int y;
+int x;
+int y;
 int width;
 int height;
 public boolean isAlive= true;
@@ -16,7 +16,6 @@ public GameObject(int x, int y, int width, int height) {
 	this.width = width;
 	this.height = height;
 }
-
 
 void update() {
 
@@ -31,5 +30,3 @@ void draw(Graphics g) {
 
 
 }
-
-
