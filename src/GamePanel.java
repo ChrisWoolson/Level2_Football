@@ -193,15 +193,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("Rocket is alive: " + rocket.isAlive);
 		if (rocket.isAlive == false) {
 			currentState = END_STATE;
-<<<<<<< HEAD
 
-=======
 			
 			
 			
 			
 			
->>>>>>> f4cd9deb9b256498c7b0110b87abc6d7e17cdc74
+
 		}
 
 	}
