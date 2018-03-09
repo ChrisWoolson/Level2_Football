@@ -7,9 +7,13 @@ public class ObjectManager {
 	RocketShip rocket;
 	Ball ball;
 	Long enemyTimer = (long) 0;
-	int enemySpawnTime = 1000;
+	int enemySpawnTime = 400;
 	int score = 0;
 
+	public static int aX;
+	public static int aY;
+	
+	
 	public ObjectManager(RocketShip rockets) {
 		
 			
@@ -48,14 +52,16 @@ public class ObjectManager {
 			alien.get(i1).draw(g);
 
 		}
-		System.out.println(alien.size());
+		
 	}
 
 	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	ArrayList<Alien> alien = new ArrayList<Alien>();
+	static ArrayList<Alien> alien = new ArrayList<Alien>();
 
 	void addAlien(Alien aliens) {
+
 		alien.add(aliens);
+
 	}
 
 	void addProjectile(Projectile proj) {
@@ -64,6 +70,7 @@ public class ObjectManager {
 
 	void manageEnemies() {
 
+<<<<<<< HEAD
 
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			System.out.println("made an alien");
@@ -72,7 +79,31 @@ public class ObjectManager {
 
 
 			enemyTimer = (Long) System.currentTimeMillis();
+=======
+		for (int i = 0; i < 2; i++) {
+			addAlien(new Alien(1400, 275, 50, 50));
+			addAlien(new Alien(1400, 475, 50, 50));
+			addAlien(new Alien(1400, 675, 50, 50));
+>>>>>>> parent of 3cafadb... /
 		}
+
+		/*
+		 * if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
+		 * 
+		 * 
+		 * for (int i = 0; i < 2; i++) { addAlien(new Alien(200, 200, 50, 50)); }
+		 * System.out.println("made an alien"); addAlien(new Alien(new
+		 * Random().nextInt(LeagueInvaders.width), 0, 50, 50));
+		 * 
+		 * 
+		 * 
+		 * 
+		 * enemyTimer = (Long) System.currentTimeMillis();
+		 * 
+		 * 
+		 * 
+		 * }
+		 */
 	}
 
 	void purgeObjects() {
@@ -86,7 +117,6 @@ public class ObjectManager {
 
 		}
 
-		
 		for (int i1 = 0; i1 < projectiles.size(); i1++) {
 			Projectile aliena = projectiles.get(i1);
 
@@ -96,10 +126,7 @@ public class ObjectManager {
 			}
 
 		}
-		
-		
-		
-		
+
 	}
 
 	void checkCollison() {
@@ -111,15 +138,22 @@ public class ObjectManager {
 				score++;
 
 			}
+
 			
-			for(Projectile p: projectiles) {
-				if(p.collisionBox.intersects(a.collisionBox)){
+			
+			
+
+			
+			
+			
+			
+			for (Projectile p : projectiles) {
+				if (p.collisionBox.intersects(a.collisionBox)) {
 					p.isAlive = false;
 					a.isAlive = false;
 				}
 			}
-			
-			
+
 		}
 
 	}
@@ -129,6 +163,7 @@ public class ObjectManager {
 
 	}
 
+<<<<<<< HEAD
 
 
 	
@@ -147,6 +182,37 @@ public class ObjectManager {
 	
 	
 
+=======
+	
+	
+	public static void getAlienX(){
+		
+		for (Alien a1: alien) {
+			aX = a1.x;
+			aY = a1.y;
+			
+			
+			
+			
+			
+													}
+		
+		
+	}
+	
+public static void getAlienY(){
+		
+		for (Alien a1: alien) {
+			aY = a1.y;
+			
+													}
+		
+		
+	}
+	
+	
+	
+>>>>>>> parent of 3cafadb... /
 }
 
 

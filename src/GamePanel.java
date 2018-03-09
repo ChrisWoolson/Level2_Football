@@ -62,6 +62,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 
 		repaint();
+		
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else
@@ -97,7 +98,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("type");
+		
 	}
 
 	@Override
@@ -177,7 +178,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			manager.addProjectile(new Projectile(rocket.x + 25, rocket.y, 10, 10));
+			//manager.addProjectile(new Projectile(rocket.x + 25, rocket.y, 10, 10));
 		}
 
 	}
@@ -190,9 +191,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.update();
 		manager.checkCollison();
 		manager.purgeObjects();
-		System.out.println("Rocket is alive: " + rocket.isAlive);
+		
 		if (rocket.isAlive == false) {
 			currentState = END_STATE;
+<<<<<<< HEAD
 
 			
 			
@@ -200,6 +202,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			
 
+=======
+			
+>>>>>>> parent of 3cafadb... /
 		}
 
 	}
@@ -252,4 +257,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	}
 
+	
+	
+	
+	public  void renderGame(){
+	    repaint();
+	    System.out.println("Hello");
+	}
+	
+	
+	
+	
 }

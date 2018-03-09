@@ -1,9 +1,16 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Paint;
+import java.awt.event.ActionEvent;
 
 
 public class Alien extends GameObject{
-
+	public boolean upa;
+	public static boolean downa;
+	public static boolean lefta;
+	public static boolean righta;
+	
+	public  double speeda = 1;
 	public Alien(int x, int y, int width, int height) {
 
 public class Alien extends GameObject {
@@ -22,7 +29,30 @@ this.speeda = speeda;
 
 		void update() {
 			super.update();
-			y = y+ 4;
+		
+			
+			
+			if(y < RocketShip.rY)
+			
+				
+				y = (int) (y+ speeda);
+			
+			
+			if(x < RocketShip.rX)
+				x = (int) (x+ speeda);
+
+			
+			if(y > RocketShip.rY)
+				y = (int) (y- speeda);
+				
+				if(x > RocketShip.rX)
+					x = (int) (x- speeda);
+			
+			
+				
+			
+			
+			
 			
 		
 
@@ -54,7 +84,14 @@ this.speeda = speeda;
 		
 		
 		
+<<<<<<< HEAD
 
+=======
+		
+
+		
+		
+>>>>>>> parent of 3cafadb... /
 	}
 
 	void draw(Graphics g) {
