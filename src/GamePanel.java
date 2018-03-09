@@ -5,14 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer time;
@@ -27,7 +22,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font gameo;
 	Font Kill;
 	Font restart;
-	public static BufferedImage field;
 	RocketShip rocket = new RocketShip(250, 700, 50, 50);
 
 	ObjectManager manager = new ObjectManager(rocket);
@@ -41,17 +35,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		gameo = new Font("Arial", Font.PLAIN, 40);
 		Kill = new Font("Arial", Font.PLAIN, 25);
 		restart = new Font("Arial", Font.PLAIN, 25);
-		
-		
-		try {
-			field=ImageIO.read(this.getClass().getResource("Football.jpg"));
-			
-		}
-		catch(IOException e) {
-			
-		}
-		
-		
 	}
 
 	public void startGame() {
@@ -68,7 +51,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (currentState == GAME_STATE) {
 			updateGameState();
-			
 		} else
 
 		if (currentState == END_STATE) {
@@ -106,24 +88,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			currentState++;
-			
-			
-			if (currentState == GAME_STATE) {
-				manager.createAliens();
-				rocket.x = 250;
-				rocket.y = 750;
-			}
-			
-			
-			
-			
-			
-			
+
 			if (currentState == END_STATE) {
 				currentState = MENU_STATE;
 				rocket = new RocketShip(250, 700, 50, 50);
 				rocket.isAlive = true;
-				
 			}
 		}
 		if (currentState > END_STATE) {
@@ -194,12 +163,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (rocket.isAlive == false) {
 			currentState = END_STATE;
 
+<<<<<<< HEAD
 			
 			
 			
 			
 			
 
+=======
+>>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 		}
 
 	}
@@ -227,9 +199,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void drawGameState(Graphics g) {
-		g.drawImage(field, 0,0, LeagueInvaders.width, LeagueInvaders.height, null);
-		
-	//	g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
+		g.setColor(Color.BLACK);
+
+		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
 
 		manager.draw(g);
 

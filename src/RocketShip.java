@@ -15,6 +15,7 @@ public class RocketShip extends GameObject {
 	}
 
 	void update() {
+<<<<<<< HEAD
 
 		
 		rX = this.x;     //used for locating the rocket
@@ -33,6 +34,8 @@ public class RocketShip extends GameObject {
 
 			
 
+=======
+>>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 		super.update();
 		if (up) {
 			this.y = this.y + speed;
