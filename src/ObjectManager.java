@@ -1,14 +1,19 @@
 import java.awt.Graphics;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class ObjectManager {
 	RocketShip rocket;
+	Ball ball;
 	Long enemyTimer = (long) 0;
 	int enemySpawnTime = 1000;
 	int score = 0;
 
 	public ObjectManager(RocketShip rockets) {
+		
+			
+		
 		rocket = rockets;
 		enemyTimer = (Long) System.currentTimeMillis();
 	}
@@ -34,6 +39,7 @@ public class ObjectManager {
 
 	void draw(Graphics g) {
 		rocket.draw(g);
+		ball.draw(g);
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).draw(g);
 
@@ -58,18 +64,12 @@ public class ObjectManager {
 
 	void manageEnemies() {
 
-<<<<<<< HEAD
 
 		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
 			System.out.println("made an alien");
 			addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
 
 
-=======
-		if (System.currentTimeMillis() - enemyTimer >= enemySpawnTime) {
-			System.out.println("made an alien");
-			addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
->>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 
 			enemyTimer = (Long) System.currentTimeMillis();
 		}
@@ -129,7 +129,6 @@ public class ObjectManager {
 
 	}
 
-<<<<<<< HEAD
 
 
 	
@@ -148,6 +147,13 @@ public class ObjectManager {
 	
 	
 
-=======
->>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 }
+
+
+
+
+
+
+
+
+

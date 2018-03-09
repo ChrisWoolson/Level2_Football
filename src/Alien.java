@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-<<<<<<< HEAD
 
 public class Alien extends GameObject{
 
@@ -17,24 +16,15 @@ public class Alien extends GameObject {
 
 	public Alien(int x, int y, int width, int height, int speeda) {
 
-=======
-public class Alien extends GameObject{
-
-	public Alien(int x, int y, int width, int height) {
->>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 		super(x, y, width, height);
-		
+this.speeda = speeda;
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 		void update() {
 			super.update();
 			y = y+ 4;
 			
 		
-<<<<<<< HEAD
 
 
 	void update() {
@@ -65,13 +55,12 @@ public class Alien extends GameObject{
 		
 		
 
-=======
-		}
-		void draw(Graphics g) {
-			g.setColor(Color.yellow);
-			g.drawRect(x, y, width, height);
-		}
->>>>>>> parent of b5295aa... Merge branch 'master' of https://github.com/ChrisWoolson/Level2_Football
 	}
 
+	void draw(Graphics g) {
+		g.setColor(Color.yellow);
+		g.drawRect(x, y, width, height);
 
+	}
+
+}
