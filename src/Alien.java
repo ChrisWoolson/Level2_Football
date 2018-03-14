@@ -3,12 +3,15 @@ import java.awt.Graphics;
 import java.awt.Paint;
 import java.awt.event.ActionEvent;
 
+import javax.swing.Timer;
+
 public class Alien extends GameObject {
 	public boolean upa;
+	
 	public static boolean downa;
 	public static boolean lefta;
 	public static boolean righta;
-
+	
 	public double speeda = 1;
 
 	public Alien(int x, int y, int width, int height, int speeda) {

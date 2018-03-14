@@ -14,9 +14,9 @@ public class ObjectManager {
 	public static int aY;
 	
 	
-	public ObjectManager(RocketShip rockets) {
+	public ObjectManager(RocketShip rockets, Ball ball) {
 		
-			
+			this.ball = ball;
 		
 		rocket = rockets;
 		enemyTimer = (Long) System.currentTimeMillis();
@@ -24,6 +24,7 @@ public class ObjectManager {
 
 	void update() {
 		rocket.update();
+		ball.update();
 		for (int i = 0; i < projectiles.size(); i++) {
 			projectiles.get(i).update();
 

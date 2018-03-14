@@ -29,8 +29,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font restart;
 	public static BufferedImage field;
 	RocketShip rocket = new RocketShip(250, 700, 50, 50);
-
-	ObjectManager manager = new ObjectManager(rocket);
+Ball ball = new Ball(100, 100, 50, 50);
+	ObjectManager manager = new ObjectManager(rocket, ball);
 
 	public GamePanel() {
 		time = new Timer(1000 / 120, this);
@@ -56,6 +56,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void startGame() {
 		time.start();
+		//ball.Kickoff();
+		
+		System.out.println("slope"+ ball.slope);
+		
 	}
 
 	@Override
