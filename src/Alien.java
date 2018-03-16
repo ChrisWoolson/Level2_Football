@@ -43,6 +43,9 @@ this.speeda = speeda;
 		
 		
 		
+		
+		
+		
 	}
 
 	void draw(Graphics g) {

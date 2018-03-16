@@ -58,7 +58,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 		time.start();
 		//ball.Kickoff();
 		
-		System.out.println("slope"+ ball.slope);
+	
 		
 	}
 
@@ -205,6 +205,18 @@ Ball ball = new Ball(100, 100, 50, 50);
 			
 		}
 
+		
+		if(manager.hasBall = true) {
+			
+			ball.x = rocket.y + 10;
+					ball.y = rocket.y +15;
+		}
+		
+		
+		
+		
+		
+		
 	}
 
 	void updateEndState() {

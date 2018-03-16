@@ -12,7 +12,7 @@ public class ObjectManager {
 
 	public static int aX;
 	public static int aY;
-	
+	public boolean hasBall = false;
 	
 	public ObjectManager(RocketShip rockets, Ball ball) {
 		
@@ -126,7 +126,11 @@ public class ObjectManager {
 			}
 
 			
-			
+			if (ball.collisionBox.intersects(rocket.collisionBox)) {
+System.out.println("hasball");
+				hasBall = true;
+System.out.println(hasBall);
+			}
 			
 
 			

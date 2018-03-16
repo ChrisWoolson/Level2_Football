@@ -14,22 +14,20 @@ public class Ball extends GameObject {
 	public double speeda = 1;
 	public boolean kicked = false;
 	
-	Random rand = new Random();
-
-	int  n = rand.nextInt(100) ;
 	
-	
-	Random r = new Random();
-
-	int  na = rand.nextInt(2) ;
 	
 	Random r3 = new Random();
 
-	int  na2 = rand.nextInt(8) ;
+	int  na2 = r3.nextInt(8) ;
+	
+	
+	Random rp = new Random();
+
+	int positive  = (rp.nextInt(6)-3) ;
 	
 	
 	
-	double slope = 360/n ;
+	//double slope = 360/na2 ;
 	int kick;
 	
 	int time2;
@@ -39,7 +37,7 @@ public class Ball extends GameObject {
 		//int random = rand.nextInt(40);
 		
 		
-		System.out.println("random"+n);
+		
 	}
 
 	void update() {
@@ -67,33 +65,42 @@ public class Ball extends GameObject {
 	public void Kickoff() {
 		
 		if(kick<360) {
-		
-			
-			x = x - 3;
-			
-			if(na == 2) {
-				if(time2 % 4 == 0) {
+			x = x - 4;
+			if(y > 900) {
+				y = 950;
+			}else if(y <100){
+				y = 50;
+			}else {
+			//x = x - 4;
+			/*
+			if(positive % 2 == 0) {
+				
 					y =  (int) (y-na2);
-				}
+					System.out.println("positive");
+				
 			}
 			
 			
-			if(na == 1) {
+			if(positive % 2 == 1) {
 			
-			if(time2 % 4 == 0) {
+			
 				y =  (int) (y+na2);
-			}
+			System.out.println("negative");
 			
 			}
 			
 		}
-		
-		
+		*/
+			
+			
+			y = y - positive;
+		System.out.println(positive);
 		
 	}
+		}
 	
 	
 	
 	
-	
+}
 }
