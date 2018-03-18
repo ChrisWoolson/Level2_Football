@@ -117,6 +117,13 @@ Ball ball = new Ball(100, 100, 50, 50);
 				manager.createAliens();
 				rocket.x = 250;
 				rocket.y = 750;
+				
+				ObjectManager.hasBall = 0;
+				
+				ball.y = 475;
+				ball.x = 1600;
+				System.out.println(ball.x);
+				
 			}
 			
 			
@@ -205,12 +212,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 			
 		}
 
-		
-		if(manager.hasBall = true) {
-			
-			ball.x = rocket.y + 10;
-					ball.y = rocket.y +15;
-		}
+	
 		
 		
 		

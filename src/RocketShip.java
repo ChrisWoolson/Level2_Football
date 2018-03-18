@@ -10,6 +10,9 @@ public class RocketShip extends GameObject {
  public static int rX;
 public static int rY;
 
+
+public static boolean ballAlive = true;
+
 public int slope;
 public int sx;
 public int sy;
@@ -61,6 +64,16 @@ public int ay2;
 	void draw(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.fillRect(x, y, width, height);
+		
+		
+		
+		if(ObjectManager.hasBall == 1) {
+		
+		g.setColor(new Color( 169, 110, 52));
+		g.fillRect(x+ 40, y, 20, 20);
+		
+		ballAlive = false;
+		}
 	}
 
 }

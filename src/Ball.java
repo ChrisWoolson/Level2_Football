@@ -25,7 +25,7 @@ public class Ball extends GameObject {
 
 	int positive  = (rp.nextInt(6)-3) ;
 	
-	
+	GamePanel panel = new GamePanel();
 	
 	//double slope = 360/na2 ;
 	int kick;
@@ -46,9 +46,27 @@ public class Ball extends GameObject {
 		
 		
 		Kickoff();
-		kick++;
+		
+		
+		
+		if(panel.currentState == panel.GAME_STATE) {
+			kick++;
+		}else {
+			kick = 0;
+		}
+		
+		
 		
 		time2++;
+		
+		
+		
+		
+
+		
+		
+		
+		ballLife();
 		
 		
 	}
@@ -58,6 +76,9 @@ public class Ball extends GameObject {
 		g.fillRect(x, y, width, height);
 		
 
+		
+		
+		
 	}
 
 	
@@ -94,7 +115,7 @@ public class Ball extends GameObject {
 			
 			
 			y = y - positive;
-		System.out.println(positive);
+		
 		
 	}
 		}
@@ -103,4 +124,19 @@ public class Ball extends GameObject {
 	
 	
 }
+	
+	
+	
+	
+	void ballLife() {
+		
+		if( RocketShip.ballAlive == false) {
+			width = 0;
+			height = 0;
+		}
+	}
+	
+	
+	
+	
 }
