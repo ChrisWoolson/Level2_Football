@@ -12,7 +12,7 @@ public class ObjectManager {
 
 	public static int aX;
 	public static int aY;
-	public static int hasBall;
+	public static boolean hasBall;
 	
 	public ObjectManager(RocketShip rockets, Ball ball) {
 		
@@ -128,7 +128,7 @@ public class ObjectManager {
 			
 			if (rocket.collisionBox.intersects(ball.collisionBox)) {
 
-				hasBall = 1 ;
+				hasBall = true ;
 System.out.println(hasBall);
 			}
 			
@@ -156,9 +156,11 @@ System.out.println(hasBall);
 
 	
 	public void createAliens() {
-		addAlien(new Alien(1400, 275, 50, 50, 2));
-		addAlien(new Alien(1400, 475, 50, 50, 1));
+		addAlien(new Alien(1400, 275, 50, 50, 5));
+		addAlien(new Alien(1400, 475, 50, 50, 3));
+		addAlien(new Alien(1400, 75, 50, 50, 4));
 		addAlien(new Alien(1400, 675, 50, 50, 1));
+		addAlien(new Alien(1600, 475, 50, 50, 2));
 		ball = new Ball(1600, 475, 20, 20);
 	}
 	

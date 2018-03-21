@@ -14,16 +14,25 @@ public class Alien extends GameObject {
 	
 	public double speeda = 1;
 
+	
+	
+	public int speed2Timer;
+	
+	
 	public Alien(int x, int y, int width, int height, int speeda) {
 		super(x, y, width, height);
 this.speeda = speeda;
+
+
 	}
 
 	void update() {
 		super.update();
 		
-		
+		speed2Timer++;
 
+		if(speed2Timer % 4 == 0) {
+		
 		if (y < RocketShip.rY) {
 			
 			
@@ -43,6 +52,12 @@ this.speeda = speeda;
 		
 		
 		
+		}
+		
+		
+		
+		
+		
 		
 		
 		
@@ -54,4 +69,12 @@ this.speeda = speeda;
 
 	}
 
-}
+	
+	
+
+	}
+	
+	
+	
+	
+

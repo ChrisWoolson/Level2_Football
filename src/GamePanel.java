@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font Kill;
 	Font restart;
 	public static BufferedImage field;
-	RocketShip rocket = new RocketShip(250, 700, 50, 50);
+	RocketShip rocket = new RocketShip(250, 700, 50, 50, this);
 Ball ball = new Ball(100, 100, 50, 50);
 	ObjectManager manager = new ObjectManager(rocket, ball);
 
@@ -78,7 +78,11 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 		if (currentState == END_STATE) {
 			updateEndState();
+			
+			
 		}
+			
+		
 
 	}
 
@@ -91,10 +95,14 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 		if (currentState == GAME_STATE) {
 			drawGameState(g);
+			
+			
 		} else
 
 		if (currentState == END_STATE) {
 			drawEndState(g);
+			
+			
 		}
 
 	}
@@ -118,11 +126,14 @@ Ball ball = new Ball(100, 100, 50, 50);
 				rocket.x = 250;
 				rocket.y = 750;
 				
-				ObjectManager.hasBall = 0;
+				ObjectManager.hasBall = false;
 				
 				ball.y = 475;
 				ball.x = 1600;
 				System.out.println(ball.x);
+				
+				
+	rocket.ballAlive = true;
 				
 			}
 			
@@ -133,7 +144,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 			
 			if (currentState == END_STATE) {
 				currentState = MENU_STATE;
-				rocket = new RocketShip(250, 700, 50, 50);
+				rocket = new RocketShip(250, 700, 50, 50, this);
 				rocket.isAlive = true;
 				
 			}
@@ -214,6 +225,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 	
 		
+
 		
 		
 		
@@ -225,7 +237,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 		manager.alien.clear();
 		manager.projectiles.clear();
-		
+		rocket.checkTd = 0;
 	}
 
 	void drawMenuState(Graphics g) {
@@ -240,7 +252,7 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 		g.setFont(instruct);
 		g.drawString("PRESS SPACE FOR INSTRUCTIONS", 60, 450);
-
+		rocket.checkTd = 0;
 	}
 
 	void drawGameState(Graphics g) {
@@ -253,6 +265,10 @@ Ball ball = new Ball(100, 100, 50, 50);
 	}
 
 	void drawEndState(Graphics g) {
+		
+		if(rocket.checkTd == 0) {
+		
+		
 		g.setColor(Color.RED);
 
 		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
@@ -266,7 +282,25 @@ Ball ball = new Ball(100, 100, 50, 50);
 
 		g.setFont(restart);
 		g.drawString("Press ENTER to restart", 60, 450);
+		}else if(rocket.checkTd == 1) {
+			
+			g.setColor(Color.GREEN);
 
+			g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
+
+			g.setColor(Color.yellow);
+
+			g.setFont(gameo);
+			g.drawString("Game Over", 50, 100);
+			g.setFont(Kill);
+			g.drawString("You killed + enemies", 100, 300);
+
+			g.setFont(restart);
+			g.drawString("Press ENTER to restart", 60, 450);
+			
+			
+			
+		}
 	}
 
 	
@@ -280,4 +314,14 @@ Ball ball = new Ball(100, 100, 50, 50);
 	
 	
 	
+	/*
+	public void addkick(){
+		
+	
+	if(currentState == GAME_STATE) {
+		ball.kick++;
+	}else {
+		ball.kick = 0;
+	}
+	} */
 }
