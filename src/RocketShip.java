@@ -16,14 +16,15 @@ public class RocketShip extends GameObject {
 	public static int rY;
 	public boolean TDhasBall;
 	public BufferedImage subImage;
-
+	public BufferedImage subImage2;
+int tim = 0;
 	public static boolean ballAlive = true;
 
 	public int slope;
 	public int sx;
 	public int sy;
 	public GamePanel panel;
-
+int count = 0;
 	public int checkTd;
 
 	public int ay1;
@@ -38,12 +39,14 @@ public class RocketShip extends GameObject {
 
 			BufferedImage img = ImageIO.read(this.getClass().getResourceAsStream("Player.png"));
 			subImage = img.getSubimage(48, 16, 16, 16);
-
+			subImage2 = img.getSubimage(48, 32, 16, 16);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+		
+	
 	}
 
 	void update() {
@@ -119,8 +122,58 @@ public class RocketShip extends GameObject {
 
 		}
 
-		g.drawImage(subImage, x, y, width, height, null);
+		
+		
+		
+if(count == 0) {
+	
+	
+		g.drawImage(subImage2, x, y, width, height, null);
+	
+	try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	count++;
+	
+		}else {
+			
+			
+				
+			
+			g.drawImage(subImage, x, y, width, height, null);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			count = 0;
+		}
+		
+		
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
 	}
 
 }

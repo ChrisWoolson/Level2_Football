@@ -242,7 +242,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawEndState(Graphics g) {
 
 		if (rocket.checkTd == 0) {
-System.out.println("death screen");
+
 			g.setColor(Color.RED);
 
 			g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
