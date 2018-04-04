@@ -58,11 +58,16 @@ public class ObjectManager {
 
 	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	static ArrayList<Alien> alien = new ArrayList<Alien>();
+	ArrayList<Ally> allies = new ArrayList<Ally>();
 
 	void addAlien(Alien aliens) {
 
 		alien.add(aliens);
 
+	}
+	
+	void addAlly(Ally a) {
+		allies.add(a);
 	}
 
 	void addProjectile(Projectile proj) {
@@ -111,6 +116,10 @@ public class ObjectManager {
 
 			}
 
+		}
+		
+		for(int i = 0; i < allies.size(); i++) {
+			this.allies.remove(i);
 		}
 
 	}
@@ -161,6 +170,9 @@ System.out.println(hasBall);
 		addAlien(new Alien(1400, 75, 50, 50, 4));
 		addAlien(new Alien(1400, 675, 50, 50, 1));
 		addAlien(new Alien(1600, 475, 50, 50, 2));
+		
+		addAlly(new Ally(200,300,50,50,6,6));
+		
 		ball = new Ball(1600, 475, 20, 20);
 	}
 	
