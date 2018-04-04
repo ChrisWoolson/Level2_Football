@@ -2,7 +2,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Paint;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
 public class Alien extends GameObject {
@@ -15,7 +18,8 @@ public class Alien extends GameObject {
 	public double baseSpeed = 1;
 public double currentSpeed;
 	
-	
+public BufferedImage subImage3;
+public BufferedImage subImage4;
 	
 	public int speed2Timer;
 
@@ -23,6 +27,18 @@ public double currentSpeed;
 		super(x, y, width, height);
 		this.baseSpeed = baseSpeed;
 currentSpeed = baseSpeed;
+
+BufferedImage img;
+try {
+	img = ImageIO.read(this.getClass().getResourceAsStream("Defence.png"));
+	subImage4 = img.getSubimage(198, 66, 66, 66);
+subImage3 = img.getSubimage(0, 66, 66, 66);
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+
+
 	}
 
 	void update() {
@@ -72,9 +88,44 @@ currentSpeed = baseSpeed;
 	}
 
 	void draw(Graphics g) {
-		g.setColor(Color.yellow);
-		g.drawRect(x, y, width, height);
+		
 
+		
+		
+		
+		
+		
+		
+		
+		long currentMs = System.currentTimeMillis() % 1000;
+		System.out.println(currentMs);
+	if(currentMs >500) {
+		
+		
+			g.drawImage(subImage3, x, y, width, height, null);
+		
+		
+		
+		
+		
+			}else {
+				
+				
+					
+				
+				g.drawImage(subImage4, x, y, width, height, null);
+				
+				
+				
+				
+				
+			}
+			
+			
+		
+		
+		
+		
 	}
 
 }

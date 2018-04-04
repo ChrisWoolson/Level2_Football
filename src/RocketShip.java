@@ -15,16 +15,37 @@ public class RocketShip extends GameObject {
 	public static int rX;
 	public static int rY;
 	public boolean TDhasBall;
+	
+	
+	
+	
 	public BufferedImage subImage;
 	public BufferedImage subImage2;
-int tim = 0;
+	
+	public BufferedImage subImageStay;
+	
+	
+	public BufferedImage subImageUp;
+	public BufferedImage subImageUp2;
+	
+	
+	public BufferedImage subImageDown;
+	public BufferedImage subImageDown2;
+	
+	
+	
+	
+	
+	
+	
+	int tim = 0;
 	public static boolean ballAlive = true;
 
 	public int slope;
 	public int sx;
 	public int sy;
 	public GamePanel panel;
-int count = 0;
+	int count = 0;
 	public int checkTd;
 
 	public int ay1;
@@ -40,13 +61,20 @@ int count = 0;
 			BufferedImage img = ImageIO.read(this.getClass().getResourceAsStream("Player.png"));
 			subImage = img.getSubimage(48, 16, 16, 16);
 			subImage2 = img.getSubimage(48, 32, 16, 16);
+			
+			subImageStay = img.getSubimage(0, 0, 16, 16);
+			
+			subImageUp = img.getSubimage(16, 16, 16, 16);
+			subImageUp2 = img.getSubimage(16, 48, 16, 16);
+			
+			
+			subImageDown = img.getSubimage(0, 16, 16, 16);
+			subImageDown2 = img.getSubimage(0, 48, 16, 16);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		
-	
 	}
 
 	void update() {
@@ -108,8 +136,6 @@ int count = 0;
 	}
 
 	void draw(Graphics g) {
-		
-		
 
 		if (ObjectManager.hasBall == true) {
 
@@ -123,57 +149,81 @@ int count = 0;
 		}
 
 		
+		long currentMs = System.currentTimeMillis() % 1000;
 		
 		
-if(count == 0) {
-	
-	
-		g.drawImage(subImage2, x, y, width, height, null);
-	
-	try {
-		Thread.sleep(1000);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	count++;
-	
-		}else {
-			
-			
-				
-			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if(right  || right && up || right && down) {
+		System.out.println(currentMs);
+		if (currentMs > 500) {
+
+			g.drawImage(subImage2, x, y, width, height, null);
+
+			count++;
+
+		} else {
+
 			g.drawImage(subImage, x, y, width, height, null);
-			
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
+
 			count = 0;
+		}
+
 		}
 		
 		
+		
+		
+		else if(up) {
+			System.out.println(currentMs);
+			if (currentMs > 500) {
 
+				g.drawImage(subImageUp2, x, y, width, height, null);
+
+				count++;
+
+			} else {
+
+				g.drawImage(subImageUp, x, y, width, height, null);
+
+				count = 0;
+			}
+
+			}
 		
 		
+		else if(down) {
+			System.out.println(currentMs);
+			if (currentMs > 500) {
+
+				g.drawImage(subImageDown2, x, y, width, height, null);
+
+				count++;
+
+			} else {
+
+				g.drawImage(subImageDown, x, y, width, height, null);
+
+				count = 0;
+			}
+
+			}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
+		else {
+			g.drawImage(subImageStay, x, y, width, height, null);
+		}
 		
 		
 	}
-
+	
 }
