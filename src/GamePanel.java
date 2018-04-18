@@ -281,7 +281,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		repaint();
 		System.out.println("Hello");
 	}
-
+	
 	/*
 	 * public void addkick(){
 	 * 

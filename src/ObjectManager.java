@@ -1,7 +1,5 @@
 import java.awt.Graphics;
-import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ObjectManager {
 	RocketShip rocket;
@@ -34,6 +32,10 @@ public class ObjectManager {
 			alien.get(i).update();
 
 		}
+		for(int i = 0; i < allies.size(); i++) {
+			allies.get(i).update();
+		}
+		
 		manageEnemies();
 
 		if (rocket.isAlive == false) {
@@ -54,10 +56,16 @@ public class ObjectManager {
 
 		}
 		
+		System.out.println("There are " + allies.size() + " allies.");
+		
+		for(int i = 0; i < allies.size(); i++) {
+			allies.get(i).draw(g);
+		}
+		
 	}
 
 	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	static ArrayList<Alien> alien = new ArrayList<Alien>();
+	ArrayList<Alien> alien = new ArrayList<Alien>();
 	ArrayList<Ally> allies = new ArrayList<Ally>();
 
 	void addAlien(Alien aliens) {
@@ -118,10 +126,18 @@ public class ObjectManager {
 
 		}
 		
-		for(int i = 0; i < allies.size(); i++) {
-			this.allies.remove(i);
-		}
+//		for(int i = 0; i < allies.size(); i++) {
+//			this.allies.remove(i);
+//		}
+		
+		for (int i1 = 0; i1 < allies.size(); i1++) {
+			Ally aliena = allies.get(i1);
 
+			if (aliena.isAlive == false) {
+				this.allies.remove(aliena);
+			}
+
+		}
 	}
 
 	void checkCollison() {
@@ -171,7 +187,10 @@ System.out.println(hasBall);
 		addAlien(new Alien(1400, 675, 50, 50, 1));
 		addAlien(new Alien(1600, 475, 50, 50, 2));
 		
-		addAlly(new Ally(200,300,50,50,6,6));
+		addAlly(new Ally(1400,675,50,50,6,1, this));
+		addAlly(new Ally(1400,675,50,50,6,2, this));
+		addAlly(new Ally(1400,675,50,50,6,3, this));
+		addAlly(new Ally(1400,675,50,50,6,4, this));
 		
 		ball = new Ball(1600, 475, 20, 20);
 	}
@@ -184,12 +203,3 @@ System.out.println(hasBall);
 	
 	
 }
-
-
-
-
-
-
-
-
-
