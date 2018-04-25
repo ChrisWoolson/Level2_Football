@@ -20,7 +20,7 @@ public class Alien<aX> extends GameObject {
 	public double baseSpeed = 1;
 public double currentSpeed;
 	
-
+public static int id;
 
 
 static int aY;
@@ -38,7 +38,7 @@ public BufferedImage subImage4;
 	
 	public int speed2Timer;
 
-	public Alien(int x, int y, int width, int height, int baseSpeed) {
+	public Alien(int x, int y, int width, int height, int baseSpeed, int id) {
 		super(x, y, width, height);
 		this.baseSpeed = baseSpeed;
 currentSpeed = baseSpeed;
@@ -82,7 +82,9 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 				x = (int) (x - currentSpeed);
 			}
 
-			
+			if(ObjectManager.collided == true) {
+				x = x + 20;
+			}
 			
 			
 			

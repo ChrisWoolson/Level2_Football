@@ -12,6 +12,9 @@ public class ObjectManager {
 	public static int aY;
 	public static boolean hasBall;
 	
+	public static boolean collided;
+	
+	
 	public ObjectManager(RocketShip rockets, Ball ball) {
 		
 			this.ball = ball;
@@ -21,6 +24,12 @@ public class ObjectManager {
 	}
 
 	void update() {
+		
+		
+	
+		
+		
+		
 		rocket.update();
 		ball.update();
 		for (int i = 0; i < projectiles.size(); i++) {
@@ -64,9 +73,9 @@ public class ObjectManager {
 		
 	}
 
-	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	ArrayList<Alien> alien = new ArrayList<Alien>();
-	ArrayList<Ally> allies = new ArrayList<Ally>();
+	 ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	public ArrayList<Alien> alien = new ArrayList<Alien>();
+	public ArrayList<Ally> allies = new ArrayList<Ally>();
 
 	void addAlien(Alien aliens) {
 
@@ -160,12 +169,20 @@ System.out.println(hasBall);
 
 			
 			
+			for (Alien a1 : alien) {
+for( Ally a2 : allies) {
+				if (a2.collisionBox.intersects(a1.collisionBox)) {
+
+					System.out.println("collided");
+					collided = true;
+				}else {
+					collided = false;
+				}
+			
+			}
 			
 			
-			
-			
-			
-			
+			}
 			
 			
 			
@@ -211,16 +228,16 @@ System.out.println(hasBall);
 
 	
 	public void createAliens() {
-		addAlien(new Alien(1400, 275, 50, 50, 5));
-		addAlien(new Alien(1400, 475, 50, 50, 3));
-		addAlien(new Alien(1400, 75, 50, 50, 4));
-		addAlien(new Alien(1400, 675, 50, 50, 1));
-		addAlien(new Alien(1600, 475, 50, 50, 2));
+		addAlien(new Alien(1400, 275, 50, 50, 5, 1));
+		addAlien(new Alien(1400, 475, 50, 50, 3, 2));
+		addAlien(new Alien(1400, 75, 50, 50, 4, 3));
+		addAlien(new Alien(1400, 675, 50, 50, 1, 4));
+		addAlien(new Alien(1600, 475, 50, 50, 2, 5));
 		
-		addAlly(new Ally(600,675,50,50,6,1, this));
-		addAlly(new Ally(600,675,50,50,6,2, this));
-		addAlly(new Ally(600,675,50,50,6,3, this));
-		addAlly(new Ally(600,675,50,50,6,4, this));
+		addAlly(new Ally(600,650,50,50,5,1, this));
+		addAlly(new Ally(600,700,50,50,6,2, this));
+		addAlly(new Ally(600,725,50,50,5,3, this));
+		addAlly(new Ally(600,625,50,50,6,4, this));
 		
 		ball = new Ball(1600, 475, 20, 20);
 	}

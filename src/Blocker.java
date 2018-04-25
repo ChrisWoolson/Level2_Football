@@ -1,3 +1,5 @@
+
+/*
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Paint;
@@ -134,3 +136,4 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 	}
 
 }
+*/

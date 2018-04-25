@@ -13,19 +13,19 @@ public class Ally extends GameObject {
 	ObjectManager parent;
 	Alien target;
 	
-	int id;
+
 
 	public static boolean downa;
 	public static boolean lefta;
 	public static boolean righta;
 
-	
+	int id;
 	
 	int walkTimer;
 	
 	
 	
-	public double baseSpeed = 1;
+	//public double baseSpeed = 1;
 public double currentSpeed;
 	
 public BufferedImage subImage3;
@@ -37,7 +37,7 @@ public BufferedImage subImage4;
 		super(x, y, width, height);
 		System.out.println("Added ally");
 		this.id = id;
-		this.baseSpeed = baseSpeed;
+		//this.baseSpeed = baseSpeed;
 		currentSpeed = baseSpeed;
 
 		parent = p;
@@ -65,20 +65,29 @@ public BufferedImage subImage4;
 		walkTimer++;
 		
 		
+		if(y == target.y && x == target.x && walkTimer % 120 == 0) {
+			//Alien.aX = ;
+		}
+		
+		
+		
+		
+		
+		
 		if (walkTimer % 4 == 0) {
 
-			if (y < Alien.aY) {
+			if (y < target.y) {
 
 				y = (int) (y + currentSpeed);
 			}
-			if (x < Alien.aX) {
+			if (x < target.x) {
 				x = (int) (x + currentSpeed);
 			}
 
-			if (y > Alien.aY) {
+			if (y > target.y) {
 				y = (int) (y - currentSpeed);
 			}
-			if (x > Alien.aX) {
+			if (x > target.x) {
 				x = (int) (x - currentSpeed);
 			}
 		}
@@ -118,4 +127,13 @@ public BufferedImage subImage4;
 				g.drawImage(subImage4, x, y, width, height, null);
 			}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
