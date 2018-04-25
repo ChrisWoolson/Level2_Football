@@ -162,6 +162,16 @@ System.out.println(hasBall);
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			for (Projectile p : projectiles) {
 				if (p.collisionBox.intersects(a.collisionBox)) {
 					p.isAlive = false;
@@ -171,6 +181,26 @@ System.out.println(hasBall);
 
 		}
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	int getScore() {
@@ -187,10 +217,10 @@ System.out.println(hasBall);
 		addAlien(new Alien(1400, 675, 50, 50, 1));
 		addAlien(new Alien(1600, 475, 50, 50, 2));
 		
-		addAlly(new Ally(1400,675,50,50,6,1, this));
-		addAlly(new Ally(1400,675,50,50,6,2, this));
-		addAlly(new Ally(1400,675,50,50,6,3, this));
-		addAlly(new Ally(1400,675,50,50,6,4, this));
+		addAlly(new Ally(600,675,50,50,6,1, this));
+		addAlly(new Ally(600,675,50,50,6,2, this));
+		addAlly(new Ally(600,675,50,50,6,3, this));
+		addAlly(new Ally(600,675,50,50,6,4, this));
 		
 		ball = new Ball(1600, 475, 20, 20);
 	}

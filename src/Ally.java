@@ -19,6 +19,12 @@ public class Ally extends GameObject {
 	public static boolean lefta;
 	public static boolean righta;
 
+	
+	
+	int walkTimer;
+	
+	
+	
 	public double baseSpeed = 1;
 public double currentSpeed;
 	
@@ -56,6 +62,28 @@ public BufferedImage subImage4;
 	void update() {
 		super.update();
 		
+		walkTimer++;
+		
+		
+		if (walkTimer % 4 == 0) {
+
+			if (y < Alien.aY) {
+
+				y = (int) (y + currentSpeed);
+			}
+			if (x < Alien.aX) {
+				x = (int) (x + currentSpeed);
+			}
+
+			if (y > Alien.aY) {
+				y = (int) (y - currentSpeed);
+			}
+			if (x > Alien.aX) {
+				x = (int) (x - currentSpeed);
+			}
+		}
+		
+		/*
 		if(target != null) {
 			if(Math.abs(target.x - x) > 50) {
 				if(target.x > x) {
@@ -73,10 +101,15 @@ public BufferedImage subImage4;
 				}
 			}
 		}
+		
+		*/
+		
+		
 	}
 
 	void draw(Graphics g) {
 		System.out.println("Drew ally");
+		g.drawRect(50, 50, 50, 50);
 		long currentMs = System.currentTimeMillis() % 1000;
 		System.out.println(currentMs);
 		if(currentMs > 500) {		

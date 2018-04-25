@@ -49,18 +49,18 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 
 		if (speed2Timer % 4 == 0) {
 
-			if (y < RocketShip.rY) {
+			if (y < Alien.aY) {
 
 				y = (int) (y + currentSpeed);
 			}
-			if (x < RocketShip.rX) {
+			if (x < Alien.aX) {
 				x = (int) (x + currentSpeed);
 			}
 
-			if (y > RocketShip.rY) {
+			if (y > Alien.aY) {
 				y = (int) (y - currentSpeed);
 			}
-			if (x > RocketShip.rX) {
+			if (x > Alien.aX) {
 				x = (int) (x - currentSpeed);
 			}
 

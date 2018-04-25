@@ -8,7 +8,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
-public class Alien extends GameObject {
+import com.sun.javafx.font.directwrite.RECT;
+
+public class Alien<aX> extends GameObject {
 	public boolean upa;
 
 	public static boolean downa;
@@ -18,6 +20,19 @@ public class Alien extends GameObject {
 	public double baseSpeed = 1;
 public double currentSpeed;
 	
+
+
+
+static int aY;
+static int aX;
+
+
+
+
+
+
+
+
 public BufferedImage subImage3;
 public BufferedImage subImage4;
 	
@@ -44,6 +59,10 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 	void update() {
 		super.update();
 
+		
+		aY = y;
+		aX = x;
+		
 		speed2Timer++;
 
 		if (speed2Timer % 4 == 0) {
@@ -72,11 +91,11 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 			}else 
 			{
 				currentSpeed = baseSpeed;
-				
+				/*
 				if(x > 1400) {
 					y++;
 				}
-				
+				*/
 			}
 			
 			
@@ -88,6 +107,7 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 	}
 
 	void draw(Graphics g) {
+		
 		
 
 		
