@@ -26,7 +26,14 @@ public class ObjectManager {
 	void update() {
 		
 		
-	
+for (Alien at : alien) {
+				
+			
+			if(ObjectManager.collided == true) {
+				Alien.oX = Alien.oY + 20;
+			}
+			
+			}
 		
 		
 		
@@ -228,11 +235,11 @@ for( Ally a2 : allies) {
 
 	
 	public void createAliens() {
-		addAlien(new Alien(1400, 275, 50, 50, 5, 1));
-		addAlien(new Alien(1400, 475, 50, 50, 3, 2));
-		addAlien(new Alien(1400, 75, 50, 50, 4, 3));
-		addAlien(new Alien(1400, 675, 50, 50, 1, 4));
-		addAlien(new Alien(1600, 475, 50, 50, 2, 5));
+		addAlien(new Alien(1400, 275, 50, 50, 5, 1, this ));
+		addAlien(new Alien(1400, 475, 50, 50, 3, 2, this ));
+		addAlien(new Alien(1400, 75, 50, 50, 4, 3, this ));
+		addAlien(new Alien(1400, 675, 50, 50, 1, 4, this ));
+		addAlien(new Alien(1600, 475, 50, 50, 2, 5, this));
 		
 		addAlly(new Ally(600,650,50,50,5,1, this));
 		addAlly(new Ally(600,700,50,50,6,2, this));

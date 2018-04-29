@@ -4,6 +4,7 @@ import java.awt.Paint;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
@@ -26,10 +27,11 @@ public static int id;
 static int aY;
 static int aX;
 
+public ObjectManager manager1;
 
 
-
-
+static int oX;
+static int oY;
 
 
 
@@ -38,7 +40,7 @@ public BufferedImage subImage4;
 	
 	public int speed2Timer;
 
-	public Alien(int x, int y, int width, int height, int baseSpeed, int id) {
+	public Alien(int x, int y, int width, int height, int baseSpeed, int id, ObjectManager manager1) {
 		super(x, y, width, height);
 		this.baseSpeed = baseSpeed;
 currentSpeed = baseSpeed;
@@ -63,6 +65,9 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 		aY = y;
 		aX = x;
 		
+		
+		
+		
 		speed2Timer++;
 
 		if (speed2Timer % 4 == 0) {
@@ -76,15 +81,43 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 			}
 
 			if (y > RocketShip.rY) {
+				
 				y = (int) (y - currentSpeed);
+				
 			}
 			if (x > RocketShip.rX) {
+				
+				for (Alien at : manager1.alien) {
+				
+					if(ObjectManager.collided == false) {
+				
 				x = (int) (x - currentSpeed);
+				
+				}
+				else {
+					x = x+0;
+				}
+				
+				}
+				
 			}
 
+			
+			
+			
+			/*
+			for (Alien at : manager.alien) {
+				
+			
 			if(ObjectManager.collided == true) {
 				x = x + 20;
 			}
+			
+			}
+			*/
+			
+			
+			
 			
 			
 			
