@@ -17,60 +17,53 @@ public class Alien<aX> extends GameObject {
 	public static boolean downa;
 	public static boolean lefta;
 	public static boolean righta;
-
+	public int collideTimeR2;
 	public double baseSpeed = 1;
-public double currentSpeed;
-	
-public static int id;
+	public double currentSpeed;
 
+	public static int id;
 
-static int aY;
-static int aX;
+	public int collidedTimer;
+	static int aY;
+	static int aX;
 
-public ObjectManager manager1;
+	public ObjectManager manager1;
 
+	public boolean collided;
+	static int oX;
+	static int oY;
 
-static int oX;
-static int oY;
+	public BufferedImage subImage3;
+	public BufferedImage subImage4;
 
-
-
-public BufferedImage subImage3;
-public BufferedImage subImage4;
-	
 	public int speed2Timer;
 
 	public Alien(int x, int y, int width, int height, int baseSpeed, int id, ObjectManager manager1) {
 		super(x, y, width, height);
 		this.baseSpeed = baseSpeed;
-currentSpeed = baseSpeed;
+		currentSpeed = baseSpeed;
 
-BufferedImage img;
-try {
-	img = ImageIO.read(this.getClass().getResourceAsStream("Defence.png"));
-	subImage4 = img.getSubimage(198, 66, 66, 66);
-subImage3 = img.getSubimage(0, 66, 66, 66);
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-
+		BufferedImage img;
+		try {
+			img = ImageIO.read(this.getClass().getResourceAsStream("Defence.png"));
+			subImage4 = img.getSubimage(198, 66, 66, 66);
+			subImage3 = img.getSubimage(0, 66, 66, 66);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
 	void update() {
 		super.update();
 
-		
 		aY = y;
 		aX = x;
-		
-		
-		
-		
+
 		speed2Timer++;
 
-		if (speed2Timer % 4 == 0) {
+		if (speed2Timer % 4 == 0 && !collided) {
 
 			if (y < RocketShip.rY) {
 
@@ -81,106 +74,71 @@ subImage3 = img.getSubimage(0, 66, 66, 66);
 			}
 
 			if (y > RocketShip.rY) {
-				
+
 				y = (int) (y - currentSpeed);
-				
+
 			}
+
 			if (x > RocketShip.rX) {
-				
-				for (Alien at : manager1.alien) {
-				
-					if(ObjectManager.collided == false) {
-				
+
 				x = (int) (x - currentSpeed);
-				
+/*
+				if (collided == true) {
+					collideTimeR2++;
+					x = (int) (x + currentSpeed);
+
+					if (collideTimeR2 % 2 == 1) {
+						
+						//x = x - 5;
+					}
 				}
-				else {
-					x = x+0;
+				/*
+				if(x< ally.x) {
+					
 				}
-				
-				}
+				*/
 				
 			}
 
-			
-			
-			
 			/*
-			for (Alien at : manager.alien) {
-				
-			
-			if(ObjectManager.collided == true) {
-				x = x + 20;
-			}
-			
-			}
-			*/
-			
-			
-			
-			
-			
-			
-			if ( Math.abs(RocketShip.rX - x) < 400 && Math.abs(RocketShip.rY - y ) < 400) {
-				currentSpeed = baseSpeed +2;
-			}else 
-			{
+			 * for (Alien at : manager.alien) {
+			 * 
+			 * 
+			 * if(ObjectManager.collided == true) { x = x + 20; }
+			 * 
+			 * }
+			 */
+
+			if (Math.abs(RocketShip.rX - x) < 400 && Math.abs(RocketShip.rY - y) < 400) {
+				currentSpeed = baseSpeed + 2;
+			} else {
 				currentSpeed = baseSpeed;
 				/*
-				if(x > 1400) {
-					y++;
-				}
-				*/
+				 * if(x > 1400) { y++; }
+				 */
 			}
-			
-			
-			
-			
-			
+
+		} else if (collided && speed2Timer %10 == 0) {
+			x = x + 20;
+			manager1.allies.remove(id-1);
 		}
 
 	}
 
 	void draw(Graphics g) {
-		
-		
 
-		
-		
-		
-		
-		
-		
-		
 		long currentMs = System.currentTimeMillis() % 1000;
 		// System.out.println(currentMs);
-	if(currentMs >500) {
-		
-		
+		if (currentMs > 500) {
+
 			g.drawImage(subImage3, x, y, width, height, null);
-		
-		
-		
-		
-		
-			}else {
-				
-				
-					
-				
-				g.drawImage(subImage4, x, y, width, height, null);
-				
-				
-				
-				
-				
-			}
-			
-			
-		
-		
-		
-		
+
+		} else {
+
+			g.drawImage(subImage4, x, y, width, height, null);
+
+		}
+
 	}
 
 }
