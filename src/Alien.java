@@ -20,6 +20,7 @@ public class Alien<aX> extends GameObject {
 	public int collideTimeR2;
 	public double baseSpeed = 1;
 	public double currentSpeed;
+<<<<<<< HEAD
 
 	public static int id;
 
@@ -36,6 +37,24 @@ public class Alien<aX> extends GameObject {
 	public BufferedImage subImage3;
 	public BufferedImage subImage4;
 
+=======
+
+	public static int id;
+
+	public int collidedTimer;
+	static int aY;
+	static int aX;
+
+	public ObjectManager manager1;
+
+	public boolean collided;
+	static int oX;
+	static int oY;
+
+	public BufferedImage subImage3;
+	public BufferedImage subImage4;
+
+>>>>>>> 99744a776826434744b04c624930e729f56ad711
 	public int speed2Timer;
 
 	public Alien(int x, int y, int width, int height, int baseSpeed, int id, ObjectManager manager1) {
@@ -81,12 +100,15 @@ public class Alien<aX> extends GameObject {
 
 			if (x > RocketShip.rX) {
 
+<<<<<<< HEAD
 				
 				for (Alien at : manager1.alien) {
 				
 					if(at.collided == false) {
 				
 
+=======
+>>>>>>> 99744a776826434744b04c624930e729f56ad711
 				x = (int) (x - currentSpeed);
 /*
 				if (collided == true) {
@@ -114,7 +136,11 @@ public class Alien<aX> extends GameObject {
 			 * 
 			 * }
 			 */
+<<<<<<< HEAD
 				}
+=======
+
+>>>>>>> 99744a776826434744b04c624930e729f56ad711
 			if (Math.abs(RocketShip.rX - x) < 400 && Math.abs(RocketShip.rY - y) < 400) {
 				currentSpeed = baseSpeed + 2;
 			} else {
@@ -124,12 +150,16 @@ public class Alien<aX> extends GameObject {
 				 */
 			}
 
+<<<<<<< HEAD
 			
 			
 			
 			
 				}}
 		 if (collided && speed2Timer %10 == 0) {
+=======
+		} else if (collided && speed2Timer %10 == 0) {
+>>>>>>> 99744a776826434744b04c624930e729f56ad711
 			x = x + 20;
 			manager1.allies.remove(id-1);
 		}
