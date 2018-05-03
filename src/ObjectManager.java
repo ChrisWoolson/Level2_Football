@@ -12,8 +12,8 @@ public class ObjectManager {
 	public static int aY;
 	public static boolean hasBall;
 	
-	public static boolean collided;
 	
+	public int timeR;
 	
 	public ObjectManager(RocketShip rockets, Ball ball) {
 		
@@ -26,6 +26,17 @@ public class ObjectManager {
 	void update() {
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	/*	
 for (Alien at : alien) {
 				
 			
@@ -35,7 +46,7 @@ for (Alien at : alien) {
 			
 			}
 		
-		
+		*/
 		
 		rocket.update();
 		ball.update();
@@ -181,10 +192,30 @@ for( Ally a2 : allies) {
 				if (a2.collisionBox.intersects(a1.collisionBox)) {
 
 					System.out.println("collided");
-					collided = true;
+					a1.collided = true;
+					a1.collidedTimer++;
 				}else {
-					collided = false;
+					
+					
+					if(a1.collidedTimer % 10 == 1 && a2.collidedTimerA % 10 == 1) {
+						a1.collided = false;
+					
+					
+					
+					
+					if(a1.collided == true) {
+						timeR++;
+						if(timeR > 30) {
+							a1.collided = false;
+						}
+					}
 				}
+					}
+					
+					
+					
+					
+				
 			
 			}
 			
@@ -241,15 +272,13 @@ for( Ally a2 : allies) {
 		addAlien(new Alien(1400, 675, 50, 50, 1, 4, this ));
 		addAlien(new Alien(1600, 475, 50, 50, 2, 5, this));
 		
-		addAlly(new Ally(600,650,50,50,5,1, this));
-		addAlly(new Ally(600,700,50,50,6,2, this));
-		addAlly(new Ally(600,725,50,50,5,3, this));
-		addAlly(new Ally(600,625,50,50,6,4, this));
+		addAlly(new Ally(600,650,50,50,2,1, this));
+		addAlly(new Ally(600,700,50,50,1,2, this));
+		addAlly(new Ally(600,725,50,50,2,3, this));
+		addAlly(new Ally(600,625,50,50,1,4, this));
 		
 		ball = new Ball(1600, 475, 20, 20);
 	}
-	
-	
 	
 	
 	

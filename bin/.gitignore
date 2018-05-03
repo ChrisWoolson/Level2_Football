@@ -1,6 +1,7 @@
 /Alien.class
 /Ally.class
 /Ball.class
+/Blocker.class
 /Defence.png
 /Football.jpg
 /GameObject.class
@@ -10,4 +11,3 @@
 /Player.png
 /Projectile.class
 /RocketShip.class
-/Blocker.class
