@@ -14,7 +14,7 @@ public class Ally extends GameObject {
 	Alien target;
 	
 
-public int collidedTimerA;
+
 	public static boolean downa;
 	public static boolean lefta;
 	public static boolean righta;
