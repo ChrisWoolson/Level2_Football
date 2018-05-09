@@ -26,6 +26,7 @@ public BufferedImage subImage4;
 	public int speed2Timer;
 
 	public Blocker(int x, int y, int width, int height, int baseSpeed) {
+		//ygmgymmgm
 		super(x, y, width, height);
 		this.baseSpeed = baseSpeed;
 currentSpeed = baseSpeed;
