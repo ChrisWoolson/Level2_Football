@@ -32,6 +32,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font Kill;
 	Font restart;
 	public static BufferedImage field;
+	public static BufferedImage startScreen;
 	RocketShip rocket = new RocketShip(250, 700, 50, 50, this);
 	Ball ball = new Ball(100, 100, 50, 50);
 	ObjectManager manager = new ObjectManager(rocket, ball);
@@ -48,7 +49,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		try {
 			field = ImageIO.read(this.getClass().getResource("Football.jpg"));
-
+			
 		} catch (IOException e) {
 
 		}
@@ -219,7 +220,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
 		g.setColor(Color.WHITE);
-
+/*
 		g.setFont(titleFont);
 		g.drawString("LEAGUE INVADERS", 50, 100);
 		g.setFont(enter);
@@ -227,6 +228,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		g.setFont(instruct);
 		g.drawString("PRESS SPACE FOR INSTRUCTIONS", 60, 450);
+		*/
+		
+		
 		rocket.checkTd = 0;
 	}
 

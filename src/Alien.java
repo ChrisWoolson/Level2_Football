@@ -20,7 +20,7 @@ public class Alien<aX> extends GameObject {
 	public int collideTimeR2;
 	public double baseSpeed = 1;
 	public double currentSpeed;
-
+boolean alreadyCollided;
 	public static int id;
 
 	public int collidedTimer;
@@ -29,7 +29,7 @@ public class Alien<aX> extends GameObject {
 
 	public ObjectManager manager1;
 
-	public boolean collided;
+	boolean collided;
 	static int oX;
 	static int oY;
 
@@ -56,6 +56,15 @@ public class Alien<aX> extends GameObject {
 	}
 
 	void update() {
+		
+		if(collided == true && alreadyCollided == false) {
+			x = x + 120;
+			currentSpeed = currentSpeed - 2;
+			alreadyCollided = true;
+			
+		}
+		
+		
 		super.update();
 
 		aY = y;
@@ -63,7 +72,7 @@ public class Alien<aX> extends GameObject {
 
 		speed2Timer++;
 
-		if (speed2Timer % 4 == 0 && !collided) {
+		if (speed2Timer % 4 == 0 ) {
 
 			if (y < RocketShip.rY) {
 
@@ -113,18 +122,19 @@ public class Alien<aX> extends GameObject {
 				currentSpeed = baseSpeed + 2;
 			} else {
 				currentSpeed = baseSpeed;
+			}}}
 				/*
 				 * if(x > 1400) { y++; }
 				 */
-			}
+	/*		}
 
 		} else if (collided && speed2Timer %10 == 0) {
 			x = x + 20;
-			manager1.allies.remove(id-1);
+			manager1.allies.remove();
 		}
 
 	}
-
+*/
 	void draw(Graphics g) {
 
 		long currentMs = System.currentTimeMillis() % 1000;

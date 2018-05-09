@@ -12,7 +12,7 @@ public class ObjectManager {
 	public static int aY;
 	public static boolean hasBall;
 	
-	
+	boolean alreadyCollided;
 	public int timeR;
 	
 	public ObjectManager(RocketShip rockets, Ball ball) {
@@ -168,6 +168,19 @@ for (Alien at : alien) {
 	}
 
 	void checkCollison() {
+		
+		
+		for (int i = 0; i < allies.size(); i++) {
+			if(allies.get(i).collided2) {
+			allies.remove(i);	
+			}
+		}
+		
+		
+		
+		
+		
+		
 		for (Alien a : alien) {
 
 			if (rocket.collisionBox.intersects(a.collisionBox)) {
@@ -189,10 +202,11 @@ System.out.println(hasBall);
 			
 			for (Alien a1 : alien) {
 for( Ally a2 : allies) {
-				if (a2.collisionBox.intersects(a1.collisionBox)) {
+				if (a2.collisionBox.intersects(a1.collisionBox) && alreadyCollided == false) {
 
 					System.out.println("collided");
 					a1.collided = true;
+					a2.collided2 = true;
 					a1.collidedTimer++;
 				}else {
 					

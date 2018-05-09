@@ -22,7 +22,7 @@ public int collidedTimerA;
 	int id;
 	
 	int walkTimer;
-	
+	boolean collided2;
 	
 	
 	//public double baseSpeed = 1;
