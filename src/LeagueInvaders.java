@@ -32,8 +32,39 @@ LeagueInvaders league = new LeagueInvaders();
 		
 		frame.getContentPane().setPreferredSize(new Dimension(width, height));
 		panel.startGame();
-		frame.addKeyListener(panel);
+	frame.addKeyListener(panel);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 	
-	
 }
+
+
+
+
+
+
+
+
+
+
+

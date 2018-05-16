@@ -286,10 +286,10 @@ for( Ally a2 : allies) {
 		addAlien(new Alien(1400, 675, 50, 50, 1, 4, this ));
 		addAlien(new Alien(1600, 475, 50, 50, 2, 5, this));
 		
-		addAlly(new Ally(600,650,50,50,2,1, this));
+		addAlly(new Ally(600,600,50,50,2,1, this));
 		addAlly(new Ally(600,700,50,50,1,2, this));
-		addAlly(new Ally(600,725,50,50,2,3, this));
-		addAlly(new Ally(600,625,50,50,1,4, this));
+		addAlly(new Ally(600,750,50,50,2,3, this));
+		addAlly(new Ally(600,650,50,50,1,4, this));
 		
 		ball = new Ball(1600, 475, 20, 20);
 	}
