@@ -65,8 +65,8 @@ public class Ball extends GameObject {
 
 		if (kick < 360) {
 			x = x - 4;
-			if (y > 900) {
-				y = 900;
+			if (y > 800) {
+				y = 800;
 				System.out.println("ballGreater");
 			} else if (y < 100) {
 				y = 50;

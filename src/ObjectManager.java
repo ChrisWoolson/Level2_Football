@@ -7,7 +7,7 @@ public class ObjectManager {
 	Long enemyTimer = (long) 0;
 	int enemySpawnTime = 400;
 	int score = 0;
-
+GamePanel panel;
 	public static int aX;
 	public static int aY;
 	public static boolean hasBall;

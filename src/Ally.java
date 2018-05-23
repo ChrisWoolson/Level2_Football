@@ -18,7 +18,7 @@ public int collidedTimerA;
 	public static boolean downa;
 	public static boolean lefta;
 	public static boolean righta;
-
+	
 	int id;
 	
 	int walkTimer;
@@ -28,8 +28,8 @@ public int collidedTimerA;
 	//public double baseSpeed = 1;
 public double currentSpeed;
 	
-public BufferedImage subImage3;
-public BufferedImage subImage4;
+public BufferedImage subImage6;
+public BufferedImage subImage5;
 	
 	public int speed2Timer;
 
@@ -44,9 +44,9 @@ public BufferedImage subImage4;
 
 		BufferedImage img;
 		try {
-			img = ImageIO.read(this.getClass().getResourceAsStream("Defence.png"));
-			subImage4 = img.getSubimage(198, 66, 66, 66);
-			subImage3 = img.getSubimage(0, 66, 66, 66);
+			img = ImageIO.read(this.getClass().getResourceAsStream("Allies.png"));
+			subImage5 = img.getSubimage(195, 44, 33, 44);
+			subImage6 = img.getSubimage(36, 84, 33, 44);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,9 +122,9 @@ public BufferedImage subImage4;
 		long currentMs = System.currentTimeMillis() % 1000;
 		System.out.println(currentMs);
 		if(currentMs > 500) {		
-				g.drawImage(subImage3, x, y, width, height, null);
+				g.drawImage(subImage5, x, y, width, height, null);
 			}else {
-				g.drawImage(subImage4, x, y, width, height, null);
+				g.drawImage(subImage6, x, y, width, height, null);
 			}
 	}
 	

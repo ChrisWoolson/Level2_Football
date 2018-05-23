@@ -29,10 +29,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font enter;
 	Font instruct;
 	Font gameo;
+	Font StartFont;
 	Font Kill;
 	Font restart;
 	public static BufferedImage field;
 	public static BufferedImage startScreen;
+	public static BufferedImage ScoreScreen;
+	public static BufferedImage TackledScreen;
 	RocketShip rocket = new RocketShip(250, 700, 50, 50, this);
 	Ball ball = new Ball(100, 100, 50, 50);
 	ObjectManager manager = new ObjectManager(rocket, ball);
@@ -44,12 +47,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		instruct = new Font("Arial", Font.PLAIN, 25);
 
 		gameo = new Font("Arial", Font.PLAIN, 40);
+		StartFont = new Font("Arial", Font.BOLD, 120);
 		Kill = new Font("Arial", Font.PLAIN, 25);
 		restart = new Font("Arial", Font.PLAIN, 25);
 
 		try {
 			field = ImageIO.read(this.getClass().getResource("Football.jpg"));
-			
+			startScreen = ImageIO.read(this.getClass().getResource("StartScreen.jpg"));
+			ScoreScreen = ImageIO.read(this.getClass().getResource("ScoreScreen.jpg"));
+			TackledScreen = ImageIO.read(this.getClass().getResource("TackledScreen.jpg"));
 		} catch (IOException e) {
 
 		}
@@ -213,22 +219,23 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		manager.alien.clear();
 		manager.projectiles.clear();
+		manager.allies.clear();
 		//rocket.checkTd = 0;
 	}
 
 	void drawMenuState(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
-		g.setColor(Color.WHITE);
-/*
-		g.setFont(titleFont);
-		g.drawString("LEAGUE INVADERS", 50, 100);
-		g.setFont(enter);
-		g.drawString("PRESS ENTER TO START", 100, 300);
+		
+		g.drawImage(startScreen, 0, 0, LeagueInvaders.width, LeagueInvaders.height, null);
+		
+		g.setColor(Color.BLACK);
 
-		g.setFont(instruct);
-		g.drawString("PRESS SPACE FOR INSTRUCTIONS", 60, 450);
-		*/
+		g.setFont(StartFont);
+		g.drawString("Kick Return", 800, 500);
+		g.setFont(gameo);
+		g.drawString("Press ENTER to start", 500, 700);
+	
+	
+		
 		
 		
 		rocket.checkTd = 0;
@@ -247,36 +254,35 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 		if (rocket.checkTd == 0) {
 
+			
+			g.drawImage(TackledScreen, 0, 0, LeagueInvaders.width, LeagueInvaders.height, null);
+			
+			
+			
+
 			g.setColor(Color.RED);
 
-			g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
-
-			g.setColor(Color.WHITE);
-
-			g.setFont(gameo);
-			g.drawString("Game Over", 50, 100);
-			g.setFont(Kill);
-			g.drawString("You killed + enemies", 100, 300);
+			g.setFont(StartFont);
+			g.drawString("Game Over", 100, 200);
+			
 
 			g.setFont(restart);
 			g.drawString("Press ENTER to restart", 60, 450);
 
 		} else if (rocket.checkTd == 1) {
 			System.out.println("switched 2");
+			g.drawImage(ScoreScreen, 0, 0, LeagueInvaders.width, LeagueInvaders.height, null);
 			
-			g.setColor(Color.GREEN);
-
-			g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
 
 			g.setColor(Color.yellow);
 
-			g.setFont(gameo);
-			g.drawString("Game win", 50, 100);
+			g.setFont(StartFont);
+			g.drawString("You Win!", 700, 500);
 			g.setFont(Kill);
 			
 
 			g.setFont(restart);
-			g.drawString("Press ENTER to restart", 60, 450);
+			g.drawString("Press ENTER to restart", 700, 750);
 
 		}
 	}
