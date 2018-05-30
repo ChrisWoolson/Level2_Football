@@ -47,12 +47,6 @@ public class Ball extends GameObject {
 
 		ballLife();
 
-		
-		
-		
-		
-		
-		
 	}
 
 	void draw(Graphics g) {
@@ -71,24 +65,6 @@ public class Ball extends GameObject {
 			} else if (y < 100) {
 				y = 50;
 			} else {
-				// x = x - 4;
-				/*
-				 * if(positive % 2 == 0) {
-				 * 
-				 * y = (int) (y-na2); System.out.println("positive");
-				 * 
-				 * }
-				 * 
-				 * 
-				 * if(positive % 2 == 1) {
-				 * 
-				 * 
-				 * y = (int) (y+na2); System.out.println("negative");
-				 * 
-				 * }
-				 * 
-				 * }
-				 */
 
 				y = y - positive;
 
@@ -105,12 +81,4 @@ public class Ball extends GameObject {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 }
